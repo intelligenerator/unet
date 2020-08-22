@@ -118,11 +118,11 @@ net = UNet(in_channels=3, out_channels=1)
 
 ## Docs
 
-Check out the [unet docs](intelligenerator.github.io/unet/) for usage
+Check out the [unet docs](https://intelligenerator.github.io/unet/) for usage
 information.
 
 For a more hands-on approach, feel free to experiment with the
-[unet example on Google Colab][1]
+[unet example on Google Colab][1].
 
 ### Building the docs
 
