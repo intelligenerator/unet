@@ -12,7 +12,6 @@ Basic U-Net implementation in pytorch.
     -   [Running the example notebook](#running-the-example-notebook)
 -   [Usage](#usage)
 -   [Docs](#docs)
-    -   [Building the docs](#building-the-docs)
 -   [Contributing](#contributing)
 -   [Versioning](#versioning)
 -   [Authors](#authors)
@@ -124,7 +123,8 @@ information.
 For a more hands-on approach, feel free to experiment with the
 [unet example on Google Colab][1].
 
-### Building the docs
+<details>
+<summary>Building the docs</summary>
 
 To build the docs yourself, create a python virtual environment:
 
@@ -145,6 +145,8 @@ Then, build the docs:
 cd docs/
 make html
 ```
+
+</details>
 
 ## Contributing
 
