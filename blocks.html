@@ -1,0 +1,333 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>unet blocks &mdash; unet v1.0.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="unet" href="unet.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> unet
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="unet.html">unet</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">unet blocks</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">unet</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>unet blocks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/blocks.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="unet-blocks">
+<h1>unet blocks<a class="headerlink" href="#unet-blocks" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="src.blocks.ConvBlock">
+<em class="property">class </em><code class="sig-prename descclassname">src.blocks.</code><code class="sig-name descname">ConvBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.blocks.ConvBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>U-Net Convolution block</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>in_channels, out_channels: int</strong></dt><dd><p>Number of input and desired output channels.</p>
+</dd>
+<dt><strong>kernel_size: `tuple` or int, optional</strong></dt><dd><p>Kernel size to use for the convolution. Default is <cite>(3, 3)</cite>.</p>
+</dd>
+<dt><strong>stride: `tuple` or int, optional</strong></dt><dd><p>Stride to use for the convolution. Default is <cite>1</cite>.</p>
+</dd>
+<dt><strong>depth: int, optional</strong></dt><dd><p>Amount of convolutions to perform. Default is <cite>2</cite>.</p>
+</dd>
+<dt><strong>activation: str, optional</strong></dt><dd><p>Activation to use after every convolution. If ‘relu’ is not specified,
+no activation will be used. Default is <cite>‘relu’</cite>.</p>
+</dd>
+<dt><strong>batch_norm: bool, optional</strong></dt><dd><p>Whether or not to use batch normalization after the activation. Default
+is <cite>True</cite>.</p>
+</dd>
+<dt><strong>padding: int or bool, optional</strong></dt><dd><p>Padding to apply before convoluting. Default is <cite>0</cite>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>net: nn.Sequential</strong></dt><dd><p>Convolution block.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__call__</span></code>(*args, **kwargs)</p></td>
+<td><p>Call self as a function.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 48%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>forward</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="py class">
+<dt id="src.blocks.DeconvBlock">
+<em class="property">class </em><code class="sig-prename descclassname">src.blocks.</code><code class="sig-name descname">DeconvBlock</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span></em><span class="sig-paren">)</span><a class="headerlink" href="#src.blocks.DeconvBlock" title="Permalink to this definition">¶</a></dt>
+<dd><p>U-Net Deconvolution block</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>in_channels, out_channels: int</strong></dt><dd><p>Number of input and desired output channels.</p>
+</dd>
+<dt><strong>up: str, optional</strong></dt><dd><p>Mode of the upconvolution. Can be either ‘upsample’, applying upsampling
+to increase image dimensions, or ‘upconv’, applying a transposed
+convolution (<cite>nn.ConvTranspose2d</cite>). Default is <cite>‘upsample’</cite>.</p>
+</dd>
+<dt><strong>scale_factor: `tuple` or int, optional</strong></dt><dd><p>Scale of the upscaled image compared to the input image. When applying
+transposed convolution, this will also be used as stride. Default is
+<cite>(2, 2)</cite>.</p>
+</dd>
+<dt><strong>mode: str, optional</strong></dt><dd><p>Upsampling algorithm. This only applies when using upsample mode. For
+4D tensors this may only be bilinear. Default is <cite>‘bilinear’</cite>.</p>
+</dd>
+<dt><strong>align_corners: bool, optional</strong></dt><dd><p>Whether or not to align image corners when upsampling. This only applies
+when using upsampling mode. Default is <cite>False</cite>.</p>
+</dd>
+<dt><strong>**kwargs</strong></dt><dd><p>Key-word arguments to be passed to the <cite>ConvBlock</cite> constructor when
+creating the convolution block.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Attributes</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>up: nn.Sequential</strong></dt><dd><p>Upscaling block, using either upsampling or transposed convolution</p>
+</dd>
+<dt><strong>conv: ConvBlock</strong></dt><dd><p>Convolution block</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">__call__</span></code>(*args, **kwargs)</p></td>
+<td><p>Call self as a function.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">center_crop</span></code>(batch, target_size)</p></td>
+<td><p>Center-crop image to specified size</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 52%" />
+<col style="width: 48%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>forward</strong></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="unet.html" class="btn btn-neutral float-left" title="unet" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Ulysse McConnell
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
