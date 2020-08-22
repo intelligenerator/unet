@@ -174,8 +174,10 @@ This project is licensed under the MIT License - see the
 
 ## Acknowledgments
 
--
-
+-   [U-Net: Convolutional Networks for Biomedical Image Segmentation](https://arxiv.org/pdf/1505.04597.pdf) - Initial research paper
+-   [pytorch forum: UNet Implementation](https://discuss.pytorch.org/t/unet-implementation/426) - Pytorch specific implementation details
+-   [jvanvugt/pytorch-unet](https://github.com/jvanvugt/pytorch-unet) - Inspiration and code benchmarking
+-   [milesial/Pytorch-UNet](https://github.com/milesial/Pytorch-UNet) - Inspiration and code benchmarking
 -   [numpy gitignore](https://github.com/numpy/numpy/blob/master/.gitignore) -
     Gitignore inspiration
 -   [github python gitignore template](https://github.com/github/gitignore/blob/master/Python.gitignore) - The gitignore template
