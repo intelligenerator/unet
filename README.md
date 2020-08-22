@@ -16,7 +16,6 @@ Basic U-Net implementation in pytorch.
 -   [Versioning](#versioning)
 -   [Authors](#authors)
 -   [License](#license)
--   [See also](#see-also)
 -   [Acknowledgments](#acknowledgments)
 
 ## Getting Started
@@ -171,8 +170,6 @@ who participated in this project.
 
 This project is licensed under the MIT License - see the
 [LICENSE.md](LICENSE.md) file for details.
-
-## See also
 
 ## Acknowledgments
 
